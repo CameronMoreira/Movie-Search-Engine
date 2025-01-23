@@ -32,7 +32,8 @@ function Home() {
 
             <div className="movies-grid">
                 {movies.map((movie) =>  
-                    movie.title.toLowerCase().startsWith(searchQuery) && ( <MovieCard movie={movie} key={movie.id} /> // Pass the movie object as a prop. The key prop is required by React to keep track of the elements in the list.
+                ( 
+                    <MovieCard movie={movie} key={movie.id} /> // Pass the movie object as a prop. The key prop is required by React to keep track of the elements in the list.
                 ))}
             </div>
         </div>
