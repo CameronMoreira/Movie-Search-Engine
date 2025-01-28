@@ -17,14 +17,16 @@ export const MovieProvider = ({children}) => { // Provide state to any of the co
 
     useEffect(() => {
         localStorage.setItem('favourites', JSON.stringify(favourites)); // Store the list of favourite movies in local storage
-    }, [])
+    }, [favourites])
 
     const addToFavourites = (movie) => {
-        setFavourites([prev => [...prev, movie]]); // Add a movie to the list of favourites
+        setFavourites(prev => [...prev, movie]); // Add a movie to the list of favourites
+        console.log("Adding to favourites", movie);
     }
 
     const removeFromFavourites = (movieId) => {
-        setFavourites([prev => prev.filter(movie => movie.id !== movieId)]); // Remove a movie from the list of favourites
+        setFavourites(prev => prev.filter(movie => movie.id !== movieId)); // Remove a movie from the list of favourites
+        console.log("Removing from favourites", movieId);
     }
 
     const isFavourite = (movieId) => {
